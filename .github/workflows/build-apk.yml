@@ -1,0 +1,33 @@
+name: Compilar APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Instalar Flet
+        run: pip install flet==1.0.5 flet-cli==1.0.5
+
+      - name: Compilar APK
+        run: flet build apk -v
+
+      - name: Subir APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: tienda-apk
+          path: build/apk
