@@ -1,0 +1,33 @@
+TIENDA ANIMADA - PROYECTO PARA GENERAR EL APK
+=============================================
+
+OPCION A (recomendada): compilar en la nube con GitHub, sin instalar nada
+--------------------------------------------------------------------------
+1. Crea una cuenta gratis en https://github.com y un repositorio nuevo.
+2. Sube TODO el contenido de esta carpeta al repositorio, incluida la carpeta
+   oculta ".github" (si arrastrar no la sube, usa "Add file > Create new file",
+   escribe como nombre ".github/workflows/build-apk.yml" y pega el contenido).
+3. Ve a la pestaña "Actions" > "Compilar APK" > "Run workflow".
+4. Espera 10-20 minutos. Al terminar, entra a la ejecucion y descarga el
+   artefacto "tienda-apk" (es un .zip que contiene el .apk).
+5. Pasa el .apk al celular, abrelo y permite "instalar apps desconocidas".
+
+OPCION B: compilar en tu PC con Windows
+---------------------------------------
+Requisitos: Windows con "Modo de desarrollador" activado, Java 17 y el SDK de
+Android (se instala con Android Studio). Flet descarga Flutter por su cuenta.
+En esta carpeta ejecuta:
+
+    python -m pip install flet==1.0.5 flet-cli==1.0.5
+    flet build apk -v
+
+(si "flet" no se reconoce:  python -m flet_cli.cli build apk -v)
+El APK queda en la carpeta  build\apk .
+
+NOTAS SOBRE LA APP EN EL CELULAR
+--------------------------------
+- Compartir por QR funciona igual (muestra el QR y el codigo de respaldo).
+- Importar: escanea el QR con la camara del telefono, copia el texto y pegalo
+  en "Importar". El escaneo con webcam / imagen solo existe en la version PC.
+- Los productos se guardan solo mientras la app esta abierta.
+- Las imagenes de internet necesitan conexion.

@@ -1,0 +1,18 @@
+[project]
+name = "tienda-animada"
+version = "1.0.0"
+description = "Tienda animada con modo administrador y modo usuario"
+requires-python = ">=3.10"
+dependencies = [
+    "flet==1.0.5",
+    "segno",
+]
+
+[tool.flet]
+org = "com.tienda"
+product = "Tienda Animada"
+company = "Tienda"
+copyright = "Tienda Animada"
+
+[tool.flet.app]
+path = "src"
